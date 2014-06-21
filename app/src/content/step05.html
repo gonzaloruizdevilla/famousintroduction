@@ -1,0 +1,18 @@
+<h1>Modifiers</h1>
+<p>Son otro tipo de nodos de Famo.us que modifican los nodos que estén por debajo.</p>
+<p>Las superficies son tontas en este sentido: no saben donde están o si son visibles. Esto es tarea del Modifier</p>
+<p>Al hacer estas agrupaciones, separamos las transformaciones CSS3 y la opacidad, que es precisamente las propiedades
+que se pueden cambiar con rendimiento</p>
+<pre> context                    var context = Engine.createContext();
+    │
+ modifier                   var chain = context.add(modifier);
+    │
+ surface                    chain.add(surface);
+</pre>
+<p>En el ejemplo anterior se observa como se separa el modificador de la superficie. Por ejemplo, si definimos el modificador como</p>
+<pre>
+var modifier = new Modifier({
+    transform : Transform.translate(100,200)
+});
+</pre>
+<p>La superficie se traslada desde la esquina superior izquierda. Los modificadores soportan otros tipos de transformaciones como autocentrado</p>

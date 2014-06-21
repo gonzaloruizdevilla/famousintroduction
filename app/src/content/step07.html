@@ -1,0 +1,21 @@
+<h1>Ramas</h1>
+<p>La potencia se aprecia cuando se empiezan a hacer ramas, como en el ejemplo.</p>
+<pre>
+
+      context           var context = Engine.createContext();
+   ┌─────┴─────┐
+modifier    surface2    context.add(modifier).add(surface1); // rama izda.
+   │
+surface1                context.add(surface2);               // rama dcha.
+</pre>
+<p>Mediante las ramas se pueden modificar y relacionar los distintos renderables.</p>
+<pre>
+      context           var context = Engine.createContext();
+         │
+     modifier1          var relativeNode = context.add(modifier1);
+   ┌─────┴─────┐
+modifier2   surface2    relativeNode.add(modifier2).add(surface1);
+   │
+surface1                relativeNode.add(surface2);
+</pre>
+

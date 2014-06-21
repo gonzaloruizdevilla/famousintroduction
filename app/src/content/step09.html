@@ -1,0 +1,39 @@
+<h1>Views</h1>
+<p>Para simplificar la creación de widgets, Famo.us te proporciona una clase Base llamada View.</p>
+<p>Una vista proporciona un interfaz para agregar al arbol, recibir y enviar eventos, etc.</p>
+<p>Famo.us también proporciona unas vistas comunes que resuelven necesidades habituales.</p>
+<pre>
+  context       var context = Engine.createContext()
+     │
+  modifier      context.add(modifier).add(scrollview);
+     │
+ scrollview
+</pre>
+<p>Internamente, Scrollview tiene lógica compleja abstraida para el desarrollador. (Es como usar Shadow DOM). ScrollView se puede poblar con otros renderables mediante su método <code>sequenceForm</code>.</p>
+<pre>    scrollview              scrollview.sequenceFrom([S1, S2, S3, ... , S10]);
+ ┌───┬───┼───────┐
+S1  S2  S3  ⋯  S10
+</pre>
+<p>Cada elemento de agregado a scrollview no tiene que ser necesariamente una superficie</p>
+<pre>
+         S10             S10.add(modifier1).add(surface1);
+    ┌─────┴─────┐
+modifier1   modifier2    S10.add(modifier2).add(surface2);
+    │           │
+surface1    surface2
+</pre>
+<p>Desenrollando el árbol, quedaría así.</p>
+<pre>
+      context
+         │
+      modifier
+         │
+     scrollview
+ ┌───┬───┼───────┐
+S1  S2  S3  ⋯  S10
+           ┌─────┴─────┐
+       modifier1    modifier2
+           │           │
+       surface1     surface2
+</pre>
+<p>A diferencia del DOM, no hay se perjudica el rendimiento al anidar elementos, porque la estructura se aplana antes de agregarla al DOM.</p>
