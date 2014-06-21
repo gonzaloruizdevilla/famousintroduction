@@ -1,8 +1,24 @@
 html {
   background: #fff;
+  font-family: Arial;
 }
 
 .backfaceVisibility {
   -webkit-backface-visibility: visible;
   backface-visibility: visible;
+}
+
+
+.ver-fuente, .ver-ejemplo {
+	border: 2px solid white;
+	background: red;
+	color: white;
+    line-height: 60px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.ver-ejemplo {
+	background: black;
+	border: 2px solid grey;
 }

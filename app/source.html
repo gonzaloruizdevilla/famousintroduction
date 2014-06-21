@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>ACE in Action</title>
+<style type="text/css" media="screen">
+    #editor { 
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+</style>
+</head>
+<body>
+
+<div id="editor"></div>
+    
+<script src="/lib/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var source = window.location.search.replace("?source=", "");
+    get('src/' + source + '.js').then(function (content){
+    	document.getElementById("editor").innerHTML = content;
+    	var editor = ace.edit("editor");
+    	editor.setTheme("ace/theme/monokai");
+    	editor.getSession().setMode("ace/mode/javascript");
+    });
+
+
+    function get(url) {
+	  // Return a new promise.
+	  return new Promise(function(resolve, reject) {
+	    // Do the usual XHR stuff
+	    var req = new XMLHttpRequest();
+	    req.open('GET', url);
+
+	    req.onload = function() {
+	      // This is called even on 404 etc
+	      // so check the status
+	      if (req.status == 200) {
+	        // Resolve the promise with the response text
+	        resolve(req.response);
+	      }
+	      else {
+	        // Otherwise reject with the status text
+	        // which will hopefully be a meaningful error
+	        reject(Error(req.statusText));
+	      }
+	    };
+
+	    // Handle network errors
+	    req.onerror = function() {
+	      reject(Error("Network Error"));
+	    };
+
+	    // Make the request
+	    req.send();
+	  });
+	}
+</script>
+</body>
+</html>

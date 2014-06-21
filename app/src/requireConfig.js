@@ -6,7 +6,11 @@ require.config({
     paths: {
         famous: '../lib/famous',
         requirejs: '../lib/requirejs/require',
-        almond: '../lib/almond/almond'
-    }
+        almond: '../lib/almond/almond',
+        'ace-builds': '../lib/ace-builds/static_highlight'
+    },
+    packages: [
+
+    ]
 });
 require(['main']);
