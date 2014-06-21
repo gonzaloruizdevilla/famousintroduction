@@ -10,15 +10,16 @@ html {
 
 
 .ver-fuente, .ver-ejemplo {
-	border: 2px solid white;
-	background: red;
-	color: white;
+	border: 1px solid red;
+	background: white;
+	color: red;
     line-height: 60px;
     text-align: center;
     cursor: pointer;
 }
 
-.ver-ejemplo {
-	background: black;
-	border: 2px solid grey;
+pre, code {
+	border: 1px solid #eee;
+	background:  #f9f9f9;
+	padding: 2px 4px;
 }

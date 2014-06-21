@@ -23,7 +23,7 @@ define(function(require, exports, module) {
         });
 
         var viewExample = new Surface({
-            size : [140, 60],
+            size : [200, 60],
             origin:[1, 0],
             content : '&#9668; Volver al ejemplo',
             classes: ['ver-ejemplo'],
