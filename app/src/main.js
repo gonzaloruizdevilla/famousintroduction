@@ -10,13 +10,30 @@ define(function(require, exports, module) {
     require('intro/intro');
     require('intro/step01');
     require('intro/step02');
+    require('intro/step03');
+    require('intro/step04');
+    require('intro/step05');
+    require('intro/step06');
+    require('intro/step07');
+    require('intro/step08');
+    require('intro/step09');
+    require('intro/step10');
+    require('intro/step11');
 
-    // create the main context
+   
     var steps = [
+        'intro/step10',
+        'intro/step11',
         'intro/logo',
         'intro/intro',
         'intro/step01',
         'intro/step02',
+        'intro/step03',
+        'intro/step04',
+        'intro/step05',
+        'intro/step06',
+        'intro/step08',
+        'intro/step09'
     ];
     
 
