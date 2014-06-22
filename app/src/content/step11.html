@@ -1,0 +1,12 @@
+<h1>Animaciones</h1>
+<p>Con <code>StateModifier</code> podemos cambiar las propiedades del Modificador 
+y establecer cómo es la transición entre las propiedades antiguas y nuevas</p>
+<p>Para hacerlo nos apoyamos en <code>.setTransform</code>.</p>
+<pre>
+stateModifier.setTransform(
+  Transform.translate(100, 300, 0),
+  { duration : 1000, curve: 'easeInOut' }
+);
+</pre>
+<p>Dentro de <code>Transform</code> tenemos funciones que nos ayudan a definir
+las transformaciones que queremos hacer.</p>
