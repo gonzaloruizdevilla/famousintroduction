@@ -20,11 +20,16 @@ define(function(require, exports, module) {
     require('intro/step10');
     require('intro/step11');
     require('intro/step12');
+    require('intro/step13');
+    require('intro/step14');
+    require('intro/step15');
+    require('intro/step16');
+    require('intro/step17');
+    require('intro/step18');
 
    
     var steps = [
-        'intro/step11',
-        'intro/step12',
+        'intro/step15',
         'intro/logo',
         'intro/intro',
         'intro/step01',
@@ -35,7 +40,11 @@ define(function(require, exports, module) {
         'intro/step06',
         'intro/step08',
         'intro/step09',
-        'intro/step10'
+        'intro/step10',
+        'intro/step11',
+        'intro/step12',
+        'intro/step13',
+        'intro/step14'
     ];
     
 
@@ -57,7 +66,7 @@ define(function(require, exports, module) {
         edgeswapper.show(exampleAndCode(steps[0]));
     }
 
-    showNext();
+    edgeswapper.show(exampleAndCode(steps[0]));
 
     Engine.on('keypress', function(event) {
         if (event.charCode == KeyCodes['m']){
