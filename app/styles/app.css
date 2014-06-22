@@ -23,3 +23,8 @@ pre, code {
 	background:  #f9f9f9;
 	padding: 2px 4px;
 }
+
+.red-bg {
+  color: white;
+  background-color: #fa5c4f; 
+}

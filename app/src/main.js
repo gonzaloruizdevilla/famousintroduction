@@ -26,10 +26,11 @@ define(function(require, exports, module) {
     require('intro/step16');
     require('intro/step17');
     require('intro/step18');
+    require('intro/step19');
 
    
     var steps = [
-        'intro/step15',
+        'intro/step19',
         'intro/logo',
         'intro/intro',
         'intro/step01',
@@ -44,7 +45,11 @@ define(function(require, exports, module) {
         'intro/step11',
         'intro/step12',
         'intro/step13',
-        'intro/step14'
+        'intro/step14',
+        'intro/step15',
+        'intro/step16',
+        'intro/step17',
+        'intro/step18'
     ];
     
 
