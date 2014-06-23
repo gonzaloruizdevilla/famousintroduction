@@ -29,10 +29,19 @@ define(function(require, exports, module) {
     require('intro/step19');
     require('intro/step20');
     require('intro/step21');
+    require('intro/step22');
+    require('intro/step23');
+    require('intro/step24');
+    require('intro/step25');
+    require('intro/step26');
+    require('intro/step27');
+    require('intro/step28');
+    require('intro/step29');
+    require('intro/step30');
 
    
     var steps = [
-        'intro/step21',
+        'intro/step30',
         'intro/logo',
         'intro/intro',
         'intro/step01',
@@ -53,7 +62,16 @@ define(function(require, exports, module) {
         'intro/step17',
         'intro/step18',
         'intro/step19',
-        'intro/step21'
+        'intro/step20',
+        'intro/step21',
+        'intro/step22',
+        'intro/step23',
+        'intro/step24',
+        'intro/step25',
+        'intro/step26',
+        'intro/step27',
+        'intro/step28',
+        'intro/step29'
     ];
     
 
