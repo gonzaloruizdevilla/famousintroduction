@@ -1,10 +1,12 @@
 define(function(require, exports, module) {
+    var RenderNode = require('famous/core/RenderNode');
     var Flipper    = require("famous/views/Flipper");
     var View    = require('famous/core/View');
     var Surface    = require('famous/core/Surface');
     var StateModifier = require('famous/modifiers/StateModifier');
 
     function exampleAndCode(url){
+        var node = new RenderNode();
         var flipper = new Flipper();
         var content = require(url);
         var toggle = false;
@@ -70,7 +72,9 @@ define(function(require, exports, module) {
         flipper.setFront(frontView);
         flipper.setBack(backView);
 
-        return flipper;
+        
+        node.add(flipper);
+        return node;
     }
 
 

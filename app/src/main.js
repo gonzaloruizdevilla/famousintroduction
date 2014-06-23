@@ -3,9 +3,12 @@ define(function(require, exports, module) {
     'use strict';
     // import dependencies
     var Engine = require('famous/core/Engine');
+    var Surface = require('famous/core/Surface');
+    var StateModifier = require('famous/modifiers/StateModifier');
     var EdgeSwapper = require('famous/views/EdgeSwapper');
     var KeyCodes = require('famous/utilities/KeyCodes');
     var exampleAndCode = require('util/exampleAndCode');
+
     require('intro/logo');
     require('intro/intro');
     require('intro/step01');
@@ -41,10 +44,10 @@ define(function(require, exports, module) {
     require('intro/step31');
     require('intro/step32');
     require('intro/step33');
+    require('intro/step34');
 
    
     var steps = [
-        'intro/step33',
         'intro/logo',
         'intro/intro',
         'intro/step01',
@@ -78,29 +81,59 @@ define(function(require, exports, module) {
         'intro/step30',
         'intro/step31',
         'intro/step32',
-        'intro/step33'
+        'intro/step33',
+        'intro/step34'
     ];
     
 
      // create the main context
     var mainContext = Engine.createContext();
     var edgeswapper = new EdgeSwapper();
-    mainContext.add(edgeswapper); 
+    
+    var posicion = 0;
 
+    function muestraSlide(){
+        edgeswapper.show(exampleAndCode(steps[posicion]));
+        controls.setContent('(n: anterior) ' + (posicion + 1) + ' de ' + steps.length +' (m: siguiente)');
+    }
 
     function showNext(){
-        var path = steps.shift();
-        steps.push(path);
-        edgeswapper.show(exampleAndCode(steps[0]));
+        posicion++;
+        if (posicion === steps.length) {
+            posicion = 0;
+        }
+        muestraSlide();
     }
 
     function showPrevious(){
-        var path = steps.pop();
-        steps.unshift(path);
-        edgeswapper.show(exampleAndCode(steps[0]));
+        posicion--;
+        if (posicion === -1) {
+            posicion = steps.length -1;
+        }
+        muestraSlide();
     }
+    
 
-    edgeswapper.show(exampleAndCode(steps[0]));
+    edgeswapper.show(exampleAndCode(steps[posicion]));
+
+    var controls = new Surface({
+        content: '(n: anterior) 1 de ' + steps.length +' (m: siguiente)',
+        size: [350, 40],
+        properties: {
+            border: '1px solid white',
+            color: 'white',
+            textAlign: 'center',
+            lineHeight: '40px',
+            background: 'black'
+        }
+    });
+    var controlsModifier = new StateModifier({
+        origin: [0.5, 1]
+    });
+
+    mainContext.add(controlsModifier).add(controls);
+
+    mainContext.add(edgeswapper);
 
     Engine.on('keypress', function(event) {
         if (event.charCode == KeyCodes['m']){
